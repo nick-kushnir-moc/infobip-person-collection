@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "60543ed3-9c0f-4db0-8071-5c3093335fcd",
+		"name": "Infobip People Batch API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40633973"
+	},
+	"item": [
+		{
+			"name": "Batch People Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "App {{appKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"people\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"customAttributes\": {\n        \"Contract Expiry\": \"2018-06-01\",\n        \"Company\": \"Acme\"\n      },\n      \"contactInformation\": {\n        \"email\": [\n          {\n            \"address\": \"johnDoe@acme.com\"\n          }\n        ]\n      }\n    }\n  ]\n}\n"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/people/2/persons/batch",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"people",
+						"2",
+						"persons",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Batch People Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "App {{appKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"people\": [\n    {\n      \"query\": {\n        \"identifier\": \"janewilliams@acme.com\",\n        \"type\": \"EMAIL\"\n      },\n      \"update\": {\n        \"contactInformation\": {\n          \"phone\": [\n            {\n              \"number\": \"12062948117\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}\n"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/people/2/persons/batch",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"people",
+						"2",
+						"persons",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Batch People Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "App {{appKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"people\": [\n    {\n      \"query\": {\n        \"type\": \"PHONE\",\n        \"identifier\": \"12062948117\"\n      }\n    },\n    {\n      \"query\": {\n        \"type\": \"EMAIL\",\n        \"identifier\": \"johnDoe@acme.com\"\n      }\n    }\n  ]\n}\n"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/people/2/persons/batch",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"people",
+						"2",
+						"persons",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single person or a list of people",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "App {{appKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/people/2/persons",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"people",
+						"2",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create single person",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "App {{appKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Jane\",\r\n  \"lastName\": \"Smith\",\r\n  \"customAttributes\": {\r\n    \"Contract Expiry\": \"2018-06-01\",\r\n    \"Company\": \"Acme\"\r\n  },\r\n  \"contactInformation\": {\r\n    \"email\": [\r\n      {\r\n        \"address\": \"janewilliams@acme.com\"\r\n      }\r\n    ]\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/people/2/persons",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"people",
+						"2",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
